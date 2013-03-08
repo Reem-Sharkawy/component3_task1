@@ -37,7 +37,7 @@ if (!defined('DS')) {
  *
  */
 if (!defined('ROOT')) {
-	define('ROOT', dirname(dirname(dirname(__FILE__))));
+	define('ROOT', dirname(dirname(dirname(address_book))));
 }
 
 /**
@@ -45,7 +45,7 @@ if (!defined('ROOT')) {
  *
  */
 if (!defined('APP_DIR')) {
-	define('APP_DIR', basename(dirname(dirname(__FILE__))));
+	define('APP_DIR', basename(dirname(dirname(address_book))));
 }
 
 /**
@@ -105,5 +105,4 @@ App::uses('Dispatcher', 'Routing');
 $Dispatcher = new Dispatcher();
 $Dispatcher->dispatch(
 	new CakeRequest(),
-	new CakeResponse()
-);
+	new CakeResponse(array('charset' => Configure::read('App.encoding'))));
